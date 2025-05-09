@@ -1,0 +1,21 @@
+button {
+    background-color: #4284f5; 
+    text-align: center;
+    font-size: 36px;
+    padding: 14px 40px;
+    width: 100%;
+    font-family: "lucida console", monospace;
+}
+button:hover {
+    background-color: #4e42f5;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    font-family: "lucida console", monospace;
+}
+
+body {
+    background-color: #42f5f2;
+}
