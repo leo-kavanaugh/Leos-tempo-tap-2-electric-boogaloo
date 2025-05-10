@@ -1,8 +1,6 @@
 //function that converts a time duration in ms to BPM
 
-function convert(f) {
-    return 60/(f/1000);
-}
+
 console.log(convert(1000))
 
 /* 60 (beats in one minute) divided by a time difference in seconds is equal to the BPM
@@ -13,12 +11,31 @@ Milliseconds are just an easier way to measure the time differential than fracti
 /* function will act as a stopwatch that is started by a mouse click, and will count upwards in 
 miliseconds up until 60,000ms (1 bpm) until the mouse is clicked again, and then bind that miliseconds value to a variable */
 
-function clickCounter() {
-    onclick
-    document.getElementById()
+let clicks = [];
+
+function convert(f) {
+    return 60 / (f / 1000);
 }
 
+function getBPM() {
+    const date_right_now = Date.now();
+    clicks.push(date_right_now);
 
+    if (clicks.length >= 10) {
 
+        let totalInterval = 0;
+        
+        for (let i = 1; i < clicks.length; i++) {
+            totalInterval += (clicks[i] - clicks[i - 1]);
+        }
 
-//duplicate function that also counts time between mouse clicks in milliseconds
+        const averageInterval = totalInterval / (clicks.length - 1);
+        const bpm = convert(averageInterval);
+        alert("BPM:" + bpm);
+        clicks = []; //reset for next round
+
+        console.log("Total Interval: " + totalInterval);
+    } else {
+        console.log("Not enough clicks to calculate BPM")
+    }
+}
